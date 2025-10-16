@@ -5,15 +5,15 @@ interface Props {
 }
 
 function ProfileCard(props: Props) {
-    const {avatar, name, description} = props;
+  const { avatar, name, description } = props;
 
-    return(
-        <div>
-            <img src={avatar} alt="User avatar"/>
-            <h2>{name}</h2>
-            <p>{description}</p>
-        </div>
-    )
+  return (
+    <div className="profile-card">
+      <img src={avatar} alt="User avatar" />
+      <h2>{name}</h2>
+      <p>{description}</p>
+    </div>
+  );
 }
 
 export default ProfileCard;

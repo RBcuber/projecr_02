@@ -1,5 +1,5 @@
 function Tools() {
-  return <p>Important step for our journey</p>;
+  return <div>Important step for our journey</div>;
 }
 
 export default Tools;
