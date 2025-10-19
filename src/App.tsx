@@ -1,15 +1,21 @@
 import "./App.css";
+import Counter from "./components/Counter/Counter";
 import Goodbye from "./components/Goodbye/Goodbye";
 import Hello from "./components/Hello/Hello";
 import PersonalGreeting from "./components/PersonalGreeting/PersonalGreeting";
 import ProductCard from "./components/ProductCard/ProductCard";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
+import SpaceMissionForm from "./components/SpaceMissionForm/SpaceMissionForm";
 import Tools from "./components/Tools/Tools";
+import WeightCalculator from "./components/WeightCalculator/WeightCalculator";
 
 function App() {
   return (
     <>
       <p>Hello!</p>
+      <Counter />
+      <WeightCalculator />
+      <SpaceMissionForm/>
       <Hello />
       <Tools />
       <Goodbye />
