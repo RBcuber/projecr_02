@@ -1,0 +1,13 @@
+.container {
+    background-color: lightblue;
+    padding: 24px;
+    margin: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 24px;
+}
+
+.container input {
+    border-radius: 12px;
+}

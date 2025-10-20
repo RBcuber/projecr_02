@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./SpaceMissionForm.module.css"
 
 export default function SpaceMissionForm() {
   const [nameAstronaut, setNameAstronaut] = useState<string>("");
@@ -9,7 +10,7 @@ export default function SpaceMissionForm() {
     setIsSubmitted(true);
   }
   return (
-    <div>
+    <div className = {styles.container}>
       <h2>Mission</h2>
       <label htmlFor="name-input">Astronaut name:</label>
       <input
