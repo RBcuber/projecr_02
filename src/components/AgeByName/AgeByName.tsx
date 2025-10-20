@@ -11,7 +11,7 @@ export default function AgeByName() {
 
   async function fetchAge() {
     try {
-      const res = await fetch(`https://api.agify.io/asd?name=${name}`);
+      const res = await fetch(`https://api.agify.io/?name=${name}`);
       if (!res.ok) {
         throw new Error("Failed to load age");
       }
