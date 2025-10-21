@@ -1,0 +1,14 @@
+.header {
+  background-color: lightcyan;
+  padding: 24px 0px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.nav {
+  margin: 0 auto;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px;
+}

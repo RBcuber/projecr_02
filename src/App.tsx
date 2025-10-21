@@ -1,44 +1,45 @@
-import "./App.css";
-import AgeByName from "./components/AgeByName/AgeByName";
-import Counter from "./components/Counter/Counter";
-import EffectExample from "./components/EffectExample/EffectExample";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import GenderByName from "./components/GenderByName/GenderByName";
-import Goodbye from "./components/Goodbye/Goodbye";
-import Hello from "./components/Hello/Hello";
-import PersonalGreeting from "./components/PersonalGreeting/PersonalGreeting";
-import ProductCard from "./components/ProductCard/ProductCard";
-import ProfileCard from "./components/ProfileCard/ProfileCard";
 import RandomJoke from "./components/RandomJoke/RandomJoke";
 import SpaceMissionForm from "./components/SpaceMissionForm/SpaceMissionForm";
-import Tools from "./components/Tools/Tools";
-import WeightCalculator from "./components/WeightCalculator/WeightCalculator";
+import Home from "./pages/Home/Home";
+import NotFound from "./pages/NotFound/NotFound";
+import MainLayout from "./layouts/MainLayout";
+import { ROUTES } from "./constants/routes";
+import Cohort68 from "./pages/Cohort68/Cohort68";
+import Contact from "./pages/Contact/Contact";
+import About from "./pages/About/About";
+import AccountLayout from "./layouts/AccountLayout/AccountLayout";
+import SettingsAccount from "./pages/SettingsAccount/SettingsAccount";
+import InfoUsers from "./pages/InfoUsers/InfoUsers";
+import AccountHome from "./pages/AccountHome/AccountHome";
 
 function App() {
   return (
     <>
-      <p>Hello!</p>
-      <GenderByName />
-      <AgeByName />
-      <RandomJoke />
-      <Counter />
-      <WeightCalculator />
-      <SpaceMissionForm />
-      <EffectExample />
-      <Hello />
-      <Tools />
-      <Goodbye />
-      <PersonalGreeting name="Ihor" />
-      <PersonalGreeting name="Ne Ihor" />
-      <ProductCard
-        title="Opaeroo Paarungsspielzeug für Hunde"
-        image="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT6dCWJhg_NWxlD6zuYn_a0CDMkebqD3IWtGcPHu6ZOhKs5KmI9eb9c6W41D6RlFy1PzLVs8pTI-JJDLThOPMEAbQ99Pg6ve69oNvUt2q6acOtAv5sXHBjIKvCMBLNNfxjN5sNTGIm3NQ&usqp=CAc"
-        price={86.99}
-      ></ProductCard>
-      <ProfileCard
-        avatar="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS6SdDSDRVS_1-JYWyuSWOF0u3OdZMdzbwNA&s"
-        name="Ihor"
-        description="Кодю, пью кофе, смотрю Аниме и мечтаю запустить свой проект. Люблю React, котов и D&D."
-      ></ProfileCard>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path={ROUTES.GENDER_REVEAL} element={<GenderByName />} />
+            <Route path={ROUTES.SPACE_MISSION} element={<SpaceMissionForm />} />
+            <Route path={ROUTES.RANDOM_JOKE} element={<RandomJoke />} />
+            <Route path={ROUTES.COHORT_68} element={<Cohort68 />} />
+            <Route path={ROUTES.CONTACT} element={<Contact />} />
+            <Route path={ROUTES.ABOUT} element={<About />} />
+            <Route path={ROUTES.ACCOUNT} element={<AccountLayout />}>
+             <Route index element={<AccountHome />} />  
+              <Route
+                path={ROUTES.SETTINGS_ACCOUNT}
+                element={<SettingsAccount />}
+              />
+              <Route path={ROUTES.INFO_USERS} element={<InfoUsers />} />
+            </Route>
+
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </HashRouter>
     </>
   );
 }

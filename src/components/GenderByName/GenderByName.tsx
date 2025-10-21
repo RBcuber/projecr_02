@@ -1,14 +1,13 @@
 import { useState } from "react";
 import styles from "./GenderByName.module.css";
+import type GenderInfo from "../../types/GenderInfo";
 
 export default function GenderByName() {
   const [name, setName] = useState("");
-  const [gender, setGender] = useState("");
-  const [country, setCountry] = useState("");
-  const [probability, setProbability] = useState(0);
-  const [remainingCredits, setRemainingCredits] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
+  const [genderInfo, setGenderInfo] = useState<GenderInfo | undefined>(
+    undefined
+  );
   function handleInfo() {
     setIsSubmitted(true);
     fetchInfo();
@@ -19,16 +18,8 @@ export default function GenderByName() {
       `https://api.genderapi.io/api/?key=68f6bdbefd15e0a6e9e04b86&name=${name}`
     );
     const data = await res.json();
-    const {
-      gender: apiGender,
-      country: apiCountry,
-      probability: apiProbability,
-      remaining_credits: apiRemainingCredits,
-    } = data;
-    setGender(apiGender);
-    setCountry(apiCountry);
-    setProbability(apiProbability);
-    setRemainingCredits(apiRemainingCredits);
+    setGenderInfo(data);
+    
   }
 
   return (
@@ -61,15 +52,15 @@ export default function GenderByName() {
           <li>Имя: {name}</li>
           <li>
             Пол:{" "}
-            {gender === "male"
+            {genderInfo?.gender === "male"
               ? "Мужской"
-              : gender === "female"
+              : genderInfo?.gender === "female"
               ? "Женский"
               : "неизвестно"}
           </li>
-          <li>Страна: {country}</li>
-          <li>Вероятность: {probability}%</li>
-          <li>Остаток запросов: {remainingCredits}</li>
+          <li>Страна: {genderInfo?.country}</li>
+          <li>Вероятность: {genderInfo?.probability}%</li>
+          <li>Остаток запросов: {genderInfo?.remaining_credits}</li>
         </ul>
       ) : null}
     </div>
