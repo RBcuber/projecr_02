@@ -13,6 +13,11 @@ import AccountLayout from "./layouts/AccountLayout/AccountLayout";
 import SettingsAccount from "./pages/SettingsAccount/SettingsAccount";
 import InfoUsers from "./pages/InfoUsers/InfoUsers";
 import AccountHome from "./pages/AccountHome/AccountHome";
+import Country from "./components/Country/Country";
+import ProductsList from "./components/ProductList/ProductList";
+import ProductPage from "./pages/ProductPage/ProductPage";
+import UserList from "./components/UsersList/UsersList";
+import UserPage from "./pages/UserPage/UserPage";
 
 function App() {
   return (
@@ -27,8 +32,13 @@ function App() {
             <Route path={ROUTES.COHORT_68} element={<Cohort68 />} />
             <Route path={ROUTES.CONTACT} element={<Contact />} />
             <Route path={ROUTES.ABOUT} element={<About />} />
+            <Route path={ROUTES.PRODUCTS} element={<ProductsList />} />
+            <Route path={ROUTES.PRODUCT_PAGE} element={<ProductPage />} />
+            <Route path={ROUTES.USER_INFO} element={<UserList />} />
+            <Route path={ROUTES.USER_PAGE} element={<UserPage />} />
+
             <Route path={ROUTES.ACCOUNT} element={<AccountLayout />}>
-             <Route index element={<AccountHome />} />  
+              <Route index element={<AccountHome />} />
               <Route
                 path={ROUTES.SETTINGS_ACCOUNT}
                 element={<SettingsAccount />}
@@ -37,6 +47,7 @@ function App() {
             </Route>
 
             <Route path="*" element={<NotFound />} />
+            <Route path="/country/:id/:slug" element={<Country />} />
           </Route>
         </Routes>
       </HashRouter>

@@ -12,3 +12,13 @@
   align-items: center;
   gap: 16px;
 }
+.link{
+  color: black;
+}
+.activeLink{
+  color: goldenrod;
+}
+
+.link:hover{
+  color: goldenrod;
+}
