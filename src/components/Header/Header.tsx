@@ -20,9 +20,6 @@ export default function Header() {
         <NavLink to={ROUTES.GENDER_REVEAL} className={getClass}>
           Gender Reveal
         </NavLink>
-        <NavLink to={ROUTES.COHORT_68} className={getClass}>
-          Cohort 68
-        </NavLink>
         <NavLink to={ROUTES.ABOUT} className={getClass}>
           About
         </NavLink>
@@ -32,11 +29,20 @@ export default function Header() {
         <NavLink to={ROUTES.ACCOUNT} className={getClass}>
           Account
         </NavLink>
-         <NavLink to={ROUTES.PRODUCTS} className={getClass}>
+        <NavLink to={ROUTES.PRODUCTS} className={getClass}>
           Products
         </NavLink>
         <NavLink to={ROUTES.USER_INFO} className={getClass}>
           User Info
+        </NavLink>
+        <NavLink to={ROUTES.SIGN_IN} className={getClass}>
+          Sign in
+        </NavLink>
+        <NavLink to={ROUTES.CATEGORIES} className={getClass}>
+          Categories
+        </NavLink>
+          <NavLink to={ROUTES.CREATE_CATEGORIES} className={getClass}>
+          Create categories
         </NavLink>
       </nav>
     </header>

@@ -18,6 +18,10 @@ import ProductsList from "./components/ProductList/ProductList";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import UserList from "./components/UsersList/UsersList";
 import UserPage from "./pages/UserPage/UserPage";
+import Parent from "./components/Parent/Parent";
+import SigninPage from "./components/SignPage/SignPage";
+import Categories from "./components/Categories/Categories";
+import CreateCategories from "./components/CreateCategories/CreateCategories";
 
 function App() {
   return (
@@ -47,7 +51,14 @@ function App() {
             </Route>
 
             <Route path="*" element={<NotFound />} />
-            <Route path="/country/:id/:slug" element={<Country />} />
+            <Route path={ROUTES.COUNTRY} element={<Country />} />
+            <Route path={ROUTES.PARENT} element={<Parent />} />
+            <Route path={ROUTES.SIGN_IN} element={<SigninPage />} />
+            <Route path={ROUTES.CATEGORIES} element={<Categories />} />
+            <Route path={ROUTES.CREATE_CATEGORIES} element={<CreateCategories />} />
+
+
+
           </Route>
         </Routes>
       </HashRouter>

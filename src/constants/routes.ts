@@ -13,5 +13,10 @@ export const ROUTES = {
     PRODUCT_PAGE: "/products/:id",
     USER_INFO: "/users-info",
     USER_PAGE: "/users-info/:id",
+    COUNTRY: "/country/:id/:slug",
+    PARENT: "/parent",
+    SIGN_IN: "/sign-in",
+    CATEGORIES: "/categories",
+    CREATE_CATEGORIES:"/create-categories"
 
 } as const;
