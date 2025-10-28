@@ -21,7 +21,7 @@ export default function Categories() {
 
       <div className={styles.list}>
         {categories.map((c) => (
-          <div className={styles.card}>
+          <div className={styles.card} key={c.id}>
             <img src={c.image} alt={c.name} className={styles.image} />
             <h2 className={styles.name}>{c.name}</h2>
             <p className={styles.id}>ID: {c.id}</p>

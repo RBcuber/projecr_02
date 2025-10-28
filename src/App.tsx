@@ -22,45 +22,53 @@ import Parent from "./components/Parent/Parent";
 import SigninPage from "./components/SignPage/SignPage";
 import Categories from "./components/Categories/Categories";
 import CreateCategories from "./components/CreateCategories/CreateCategories";
+import { AppProviders } from "./providers/AppProvider";
+import Counter from "./components/Counter/Counter";
 
 function App() {
   return (
     <>
       <HashRouter>
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<Home />} />
-            <Route path={ROUTES.GENDER_REVEAL} element={<GenderByName />} />
-            <Route path={ROUTES.SPACE_MISSION} element={<SpaceMissionForm />} />
-            <Route path={ROUTES.RANDOM_JOKE} element={<RandomJoke />} />
-            <Route path={ROUTES.COHORT_68} element={<Cohort68 />} />
-            <Route path={ROUTES.CONTACT} element={<Contact />} />
-            <Route path={ROUTES.ABOUT} element={<About />} />
-            <Route path={ROUTES.PRODUCTS} element={<ProductsList />} />
-            <Route path={ROUTES.PRODUCT_PAGE} element={<ProductPage />} />
-            <Route path={ROUTES.USER_INFO} element={<UserList />} />
-            <Route path={ROUTES.USER_PAGE} element={<UserPage />} />
-
-            <Route path={ROUTES.ACCOUNT} element={<AccountLayout />}>
-              <Route index element={<AccountHome />} />
+        <AppProviders>
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<Home />} />
+              <Route path={ROUTES.GENDER_REVEAL} element={<GenderByName />} />
               <Route
-                path={ROUTES.SETTINGS_ACCOUNT}
-                element={<SettingsAccount />}
+                path={ROUTES.SPACE_MISSION}
+                element={<SpaceMissionForm />}
               />
-              <Route path={ROUTES.INFO_USERS} element={<InfoUsers />} />
+              <Route path={ROUTES.RANDOM_JOKE} element={<RandomJoke />} />
+              <Route path={ROUTES.COHORT_68} element={<Cohort68 />} />
+              <Route path={ROUTES.CONTACT} element={<Contact />} />
+              <Route path={ROUTES.ABOUT} element={<About />} />
+              <Route path={ROUTES.PRODUCTS} element={<ProductsList />} />
+              <Route path={ROUTES.COUNTER} element={<Counter />} />
+              <Route path={ROUTES.PRODUCT_PAGE} element={<ProductPage />} />
+              <Route path={ROUTES.USER_INFO} element={<UserList />} />
+              <Route path={ROUTES.USER_PAGE} element={<UserPage />} />
+
+              <Route path={ROUTES.ACCOUNT} element={<AccountLayout />}>
+                <Route index element={<AccountHome />} />
+                <Route
+                  path={ROUTES.SETTINGS_ACCOUNT}
+                  element={<SettingsAccount />}
+                />
+                <Route path={ROUTES.INFO_USERS} element={<InfoUsers />} />
+              </Route>
+
+              <Route path="*" element={<NotFound />} />
+              <Route path={ROUTES.COUNTRY} element={<Country />} />
+              <Route path={ROUTES.PARENT} element={<Parent />} />
+              <Route path={ROUTES.SIGN_IN} element={<SigninPage />} />
+              <Route path={ROUTES.CATEGORIES} element={<Categories />} />
+              <Route
+                path={ROUTES.CREATE_CATEGORIES}
+                element={<CreateCategories />}
+              />
             </Route>
-
-            <Route path="*" element={<NotFound />} />
-            <Route path={ROUTES.COUNTRY} element={<Country />} />
-            <Route path={ROUTES.PARENT} element={<Parent />} />
-            <Route path={ROUTES.SIGN_IN} element={<SigninPage />} />
-            <Route path={ROUTES.CATEGORIES} element={<Categories />} />
-            <Route path={ROUTES.CREATE_CATEGORIES} element={<CreateCategories />} />
-
-
-
-          </Route>
-        </Routes>
+          </Routes>
+        </AppProviders>
       </HashRouter>
     </>
   );

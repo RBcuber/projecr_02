@@ -4,6 +4,7 @@ export const ROUTES = {
     SPACE_MISSION: "/space-mission",
     GENDER_REVEAL: "/gender-reveal",
     COHORT_68: "/cohort-68",
+    COUNTER: "/counter",
     CONTACT: "/contact",
     ABOUT: "/about",
     ACCOUNT: "/account",

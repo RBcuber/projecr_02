@@ -1,31 +1,32 @@
-import { useState } from "react";
+import { useCounter } from "../../hooks/useCounter";
+import s from "./Counter.module.css";
 
 export default function Counter() {
-  const [secret] = useState(Math.floor(Math.random() * 21) - 10);
-  const [count, setCount] = useState(0);
-  function handlePlus() {
-    setCount((prev) => prev + 1);
-  }
-  function handleMinus() {
-    setCount((prev) => prev - 1);
-  }
-  function handleClear() {
-    setCount(0);
-  }
+  const { count, setCount } = useCounter();
 
   return (
-    <div>
-      Counter: {count}
-      <button type="button" onClick={handlePlus}>
-        +
-      </button>
-      <button type="button" onClick={handleMinus}>
-        -
-      </button>
-      <button type="button" onClick={handleClear}>
-        Clear
-      </button>
-      <p> {count === secret ? "Ураааааааа" : ""}</p>
+    <div className={s.counterBox}>
+      <h2 className={s.title}>Counter</h2>
+
+      <div className={s.display}>
+        <button
+          className={s.btn}
+          onClick={() => setCount(count - 1)}
+          aria-label="Decrease"
+        >
+          –
+        </button>
+
+        <span className={s.value}>{count}</span>
+
+        <button
+          className={s.btn}
+          onClick={() => setCount(count + 1)}
+          aria-label="Increase"
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 }

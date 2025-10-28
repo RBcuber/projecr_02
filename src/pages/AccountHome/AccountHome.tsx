@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
-import type UserInfo from "../../types/UserInfo";
+import { useEffect } from "react";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function AccountHome() {
-  const [user, setUser] = useState<UserInfo | undefined>(undefined);
-  async function fetchProfile() {
-    const token = localStorage.getItem("access_token");
-
+  const { user, setUser } = useAuth();
+  async function fetchProfile(token: string) {
     const res = await fetch("https://api.escuelajs.co/api/v1/auth/profile", {
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -13,7 +11,11 @@ export default function AccountHome() {
     setUser(currentUser);
   }
   useEffect(() => {
-    fetchProfile();
+    const token = localStorage.getItem("access_token");
+    if (token) {
+      fetchProfile(token);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

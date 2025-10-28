@@ -1,12 +1,23 @@
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
 import s from "./Header.module.css";
+import { useAuth } from "../../hooks/useAuth";
+import { useCounter } from "../../hooks/useCounter";
 
 const getClass = ({ isActive }: { isActive: boolean }) =>
   isActive ? s.activeLink : s.link;
+
 export default function Header() {
+  const { user } = useAuth();
+  const { count } = useCounter();
+
   return (
     <header className={s.header}>
+      <div className={s.userInfo}>
+        {user?.email && <p>{user.email}</p>}
+        <p className={s.counter}>Счётчик: {count}</p>
+      </div>
+
       <nav className={s.nav}>
         <NavLink to={ROUTES.HOME} className={getClass}>
           Home
@@ -19,6 +30,9 @@ export default function Header() {
         </NavLink>
         <NavLink to={ROUTES.GENDER_REVEAL} className={getClass}>
           Gender Reveal
+        </NavLink>
+        <NavLink to={ROUTES.COUNTER} className={getClass}>
+          Counter
         </NavLink>
         <NavLink to={ROUTES.ABOUT} className={getClass}>
           About
@@ -36,13 +50,13 @@ export default function Header() {
           User Info
         </NavLink>
         <NavLink to={ROUTES.SIGN_IN} className={getClass}>
-          Sign in
+          Sign In
         </NavLink>
         <NavLink to={ROUTES.CATEGORIES} className={getClass}>
           Categories
         </NavLink>
-          <NavLink to={ROUTES.CREATE_CATEGORIES} className={getClass}>
-          Create categories
+        <NavLink to={ROUTES.CREATE_CATEGORIES} className={getClass}>
+          Create Categories
         </NavLink>
       </nav>
     </header>

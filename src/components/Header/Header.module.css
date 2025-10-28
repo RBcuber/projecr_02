@@ -1,24 +1,63 @@
 .header {
-  background-color: lightcyan;
-  padding: 24px 0px;
+  background-color: #f0fbff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 16px 0;
   width: 100%;
   margin-bottom: 20px;
-}
-.nav {
-  margin: 0 auto;
-  max-width: 1200px;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
-  gap: 16px;
-}
-.link{
-  color: black;
-}
-.activeLink{
-  color: goldenrod;
+  transition: background-color 0.3s ease;
 }
 
-.link:hover{
-  color: goldenrod;
+.header:hover {
+  background-color: #e8f7fb; 
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.userInfo p {
+  margin: 0;
+}
+
+.counter {
+  font-weight: 600;
+  color: #0077ff;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  max-width: 1600px;
+  padding: 0 16px;
+}
+
+.link {
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.link:hover {
+  color: #0077ff;
+  background-color: rgba(0, 119, 255, 0.1);
+}
+
+.activeLink {
+  color: #0077ff;
+  font-weight: 600;
+  border-bottom: 2px solid #0077ff;
 }
